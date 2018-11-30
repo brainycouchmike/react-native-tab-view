@@ -102,7 +102,7 @@ export default class TabView<T: *> extends React.Component<Props<T>, State> {
     this._mounted = true;
 
     // Delay rendering of unfocused scenes for improved startup
-    setTimeout(() => this.setState({ renderUnfocusedScenes: true }), 0);
+    setTimeout(() => (this._mounted && this.setState({ renderUnfocusedScenes: true }), 0));
   }
 
   componentWillUnmount() {
